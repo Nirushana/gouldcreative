@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+/* ============================================================
+   GOULD CREATIVE — Design tokens
+   Palette rooted in the company overview deck: warm cream paper,
+   olive/sage brand green, stone neutrals. Refined for deeper
+   contrast and a dramatic dark-olive panel used as an accent band.
+   Change a value here and it updates everywhere.
+   ============================================================ */
+:root {
+  /* Surfaces (light, warm, earthy) */
+  --background: #f4f1e6; /* cream paper — the page ground */
+  --band: #eae5d5; /* greige — alternating band */
+  --surface: #efebdd; /* raised sections */
+  --surface-2: #e6e1d0; /* subtle panels */
+  --card: #f7f4ea; /* elevated card fill, warm ivory */
+  --contrast: #ddd8c5; /* stone/greige feature bands */
+
+  /* Dark panel — the dramatic accent band (deep warm olive-black) */
+  --panel: #1b1c14;
+  --panel-2: #24261b;
+  --panel-line: #3a3c2c;
+  --panel-ink: #ece7d4; /* cream text on the dark panel */
+  --panel-muted: #a9a98a; /* secondary text on the dark panel */
+
+  /* Ink */
+  --foreground: #1d1c12; /* primary headings, warm near-black */
+  --body: #43442e; /* body copy, deep olive-brown */
+  --muted: #64654b; /* secondary copy */
+  --faint: #86866a; /* eyebrow labels / meta, sage */
+
+  /* Structure */
+  --line: #d2ceba; /* hairline borders */
+  --line-strong: #c2bda6;
+
+  /* Accent (olive brand green) */
+  --accent: #6f7047;
+  --accent-hover: #585a35;
+  --accent-ink: #f6f4ea;
+  --accent-on-dark: #bcbd8a; /* olive that reads on the dark panel */
+
+  /* Media placeholder tones (until real photography lands) */
+  --placeholder: #cec9b4;
+  --placeholder-light: #ddd9c9;
+
+  --radius: 2px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-band: var(--band);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-contrast: var(--contrast);
+
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-panel-line: var(--panel-line);
+  --color-panel-ink: var(--panel-ink);
+  --color-panel-muted: var(--panel-muted);
+
+  --color-foreground: var(--foreground);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-on-dark: var(--accent-on-dark);
+
+  --color-placeholder: var(--placeholder);
+  --color-placeholder-light: var(--placeholder-light);
+
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--body);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Typography helpers ---------------------------------------------------
+   Display face carries the headlines in mixed case for an editorial feel;
+   small labels keep the mono uppercase for the studio's technical voice. */
+.display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* Elevated card surface, reads on both the light and dark section bands.
+   Pair with `border border-line` utilities so accent borders still compose. */
+.card {
+  background-color: var(--card);
+  box-shadow: 0 1px 2px rgba(29, 28, 18, 0.04);
+}
+
+.card-interactive {
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+}
+.card-interactive:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  box-shadow: 0 18px 40px rgba(29, 28, 18, 0.12);
+}
+
+/* Thin animated underline used on inline links and nav items. */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* Continuous client-name marquee. Communicates breadth of the roster; the
+   track is duplicated in markup so the loop is seamless. */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee-x 42s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Respect reduced motion globally. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Fine paper grain over the whole site — adds a tactile, printed feel. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}

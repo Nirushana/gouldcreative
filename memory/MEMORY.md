@@ -1,0 +1,1 @@
+- [Gould Creative brand palette](gouldcreative-brand-palette.md) — olive+cream is documented brand, preserve it; don't "fix" it as an AI-tell
