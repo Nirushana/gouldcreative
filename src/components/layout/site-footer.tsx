@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
-import { Monogram } from "@/components/ui/monogram";
 import { footerColumns, site } from "@/lib/site";
 
 export function SiteFooter() {
@@ -33,7 +33,13 @@ export function SiteFooter() {
           ))}
 
           <div className="md:justify-self-end">
-            <Monogram className="h-24 w-24 text-foreground" />
+            <Image
+              src="/images/logos/gould-logo.png"
+              alt="Gould Creative"
+              width={112}
+              height={112}
+              className="h-28 w-28 rounded-full"
+            />
           </div>
         </div>
 

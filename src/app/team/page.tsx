@@ -33,21 +33,21 @@ export default function TeamPage() {
       <section className="border-b border-line bg-band py-20 md:py-28">
         <Container>
           <SectionHeading title="The studio" />
-          <div className="mt-12 grid gap-x-4 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 md:gap-x-16">
             {team.map((member, i) => (
               <Reveal key={member.name} delay={(i % 3) * 0.07}>
                 <article className="group">
                   <Media
                     src={member.image}
                     label={member.name}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, 50vw"
                     className="aspect-4/5 w-full grayscale transition-all duration-500 group-hover:grayscale-0"
                   />
-                  <h3 className="display mt-6 text-xl text-foreground">
+                  <h3 className="display mt-8 text-2xl text-foreground">
                     {member.name}
                   </h3>
                   <p className="eyebrow mt-2">{member.role}</p>
-                  <p className="mt-4 text-sm leading-relaxed text-muted">
+                  <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
                     {member.bio}
                   </p>
                   <p className="mt-4 font-mono text-xs tracking-wider text-faint">
