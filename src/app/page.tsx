@@ -12,9 +12,9 @@ export default function HomePage() {
   return (
     <>
       {/* ---------- Hero: asymmetric split ---------- */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24">
+      <section className="pt-32 pb-16 md:pt-32 md:pb-16">
         <Container>
-          <div className="grid items-end gap-12 md:grid-cols-12 md:gap-10">
+          <div className="grid items-center gap-12 md:grid-cols-12 md:gap-10">
             <div className="md:col-span-7">
               <Reveal>
                 <Eyebrow className="mb-8">Design &amp; Manufacture · Est. {site.established}</Eyebrow>
@@ -52,7 +52,7 @@ export default function HomePage() {
                 label="Paul Smith striped wool weekender with leather handles"
                 sizes="(max-width: 768px) 100vw, 42vw"
                 priority
-                className="aspect-3/4 w-full"
+                className="aspect-3/4 max-h-[calc(100svh-11rem)] w-full"
               />
             </Reveal>
           </div>
