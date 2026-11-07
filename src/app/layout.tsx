@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Newsreader, Saira } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader, Figtree } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Display face for headlines. Geometric technical sans in the Eurostile /
-// "square" genre, matched to the company deck's headline typography.
-const display = Saira({
+// Display face for headlines. Clean geometric sans chosen to match the
+// Gould Creative logo lettering.
+const display = Figtree({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],

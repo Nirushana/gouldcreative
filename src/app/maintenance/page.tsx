@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Monogram } from "@/components/ui/monogram";
+import Image from "next/image";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -14,7 +14,13 @@ export const metadata: Metadata = {
 export default function MaintenancePage() {
   return (
     <div className="fixed inset-0 z-[65] flex flex-col items-center justify-center overflow-y-auto bg-panel px-6 py-16 text-center text-panel-ink">
-      <Monogram className="h-28 w-28 text-accent-on-dark sm:h-36 sm:w-36" />
+      <Image
+        src="/images/logos/gould-logo.png"
+        alt="Gould Creative"
+        width={144}
+        height={144}
+        className="h-28 w-28 rounded-full sm:h-36 sm:w-36"
+      />
 
       <p className="eyebrow mt-12 !text-panel-muted">Site under maintenance</p>
 

@@ -48,8 +48,8 @@ export default function HomePage() {
 
             <Reveal delay={0.15} className="md:col-span-5">
               <Media
-                src="/clients/maybach.jpg"
-                label="Maybach 48hr weekender in German buffalo leather"
+                src="/images/work/paul-smith-weekender.jpg"
+                label="Paul Smith striped wool weekender with leather handles"
                 sizes="(max-width: 768px) 100vw, 42vw"
                 priority
                 className="aspect-3/4 w-full"
@@ -64,7 +64,7 @@ export default function HomePage() {
         <Container className="mb-6">
           <Eyebrow>Selected clients</Eyebrow>
         </Container>
-        <Marquee items={clientLogos} />
+        <Marquee items={clientLogos.map((c) => c.name)} />
       </section>
 
       {/* ---------- Positioning: dramatic dark band ---------- */}
@@ -143,7 +143,7 @@ export default function HomePage() {
             {/* Center image — spans both rows */}
             <div className="md:col-start-2 md:row-span-2">
               <Media
-                src="/clients/belstaff-duffel.jpg"
+                src="/clients/belstaff-duffel-v2.jpg"
                 label="Belstaff Trialmaster canvas and leather duffel"
                 sizes="(max-width: 768px) 100vw, 25vw"
                 className="h-full min-h-72 w-full"
@@ -181,10 +181,10 @@ export default function HomePage() {
           <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
             <Reveal>
               <Media
-                src="/clients/new-lingwood.jpg"
-                label="New &amp; Lingwood leather loafers, made in England"
+                src="/images/work/vyn-personalise.jpg"
+                label="VYN personalisable leather and suede sneakers"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="aspect-square w-full"
+                className="aspect-7/5 w-full"
               />
             </Reveal>
             <Reveal delay={0.1}>

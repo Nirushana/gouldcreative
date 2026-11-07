@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/container";
 import { PageHero } from "@/components/ui/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { NumberBadge } from "@/components/ui/number-badge";
+import Image from "next/image";
 import { Media } from "@/components/ui/media";
 import { Reveal } from "@/components/ui/reveal";
 import { Button } from "@/components/ui/button";
@@ -83,12 +84,22 @@ export default function ClientsPage() {
         <Container>
           <SectionHeading title="A few names" />
           <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {clientLogos.map((name) => (
+            {clientLogos.map(({ name, logo }) => (
               <li
                 key={name}
-                className="card card-interactive flex items-center justify-center border border-line px-4 py-10 text-center text-sm font-semibold uppercase tracking-wide text-muted"
+                className="card card-interactive flex h-32 items-center justify-center border border-line px-6 text-center text-sm font-semibold uppercase tracking-wide text-muted"
               >
-                {name}
+                {logo ? (
+                  <Image
+                    src={logo}
+                    alt={name}
+                    width={240}
+                    height={80}
+                    className="h-auto max-h-16 w-auto max-w-full object-contain mix-blend-multiply"
+                  />
+                ) : (
+                  name
+                )}
               </li>
             ))}
           </ul>

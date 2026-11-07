@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -41,9 +42,19 @@ export function SiteHeader() {
         >
           <Link
             href="/"
-            className="display text-lg tracking-[-0.01em] text-foreground"
+            className="display flex items-center gap-3 text-lg tracking-[-0.01em] text-foreground"
             onClick={() => setOpen(false)}
           >
+            <Image
+              src="/images/logos/gould-logo.png"
+              alt=""
+              width={48}
+              height={48}
+              priority
+              className={`rounded-full transition-[width,height] duration-300 ${
+                scrolled ? "h-10 w-10" : "h-12 w-12"
+              }`}
+            />
             Gould Creative
           </Link>
 
